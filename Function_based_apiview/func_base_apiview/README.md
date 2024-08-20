@@ -176,7 +176,6 @@ This view allows you to either retrieve a list of all books or create a new book
             "published_date": "YYYY-MM-DD",
             "isbn": "ISBN Number"
         },
-        ...
     ]
     ```
 
