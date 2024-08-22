@@ -38,9 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+]
+
+EXTERNAL_APPS = [
     'api',
     'apiview_app',
+    'genericAndmixin',
 ]
+
+INSTALLED_APPS.extend(EXTERNAL_APPS)
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
