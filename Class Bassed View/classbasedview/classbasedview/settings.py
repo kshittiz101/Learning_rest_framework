@@ -44,6 +44,7 @@ EXTERNAL_APPS = [
     'api',
     'apiview_app',
     'genericAndmixin',
+    'concreteview',
 ]
 
 INSTALLED_APPS.extend(EXTERNAL_APPS)
