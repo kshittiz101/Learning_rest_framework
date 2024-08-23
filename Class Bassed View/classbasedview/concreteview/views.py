@@ -14,7 +14,7 @@ class BookList(ListAPIView):
 
 class BookRetrive(RetrieveAPIView):
     '''
-    Retrive book
+    Retrive specific book
     '''
     queryset = Book.objects.all()
     serializer_class = BookSerializer
@@ -49,14 +49,14 @@ class BookListCreate(ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
-class BookUpdateRetieve(RetrieveUpdateAPIView):
+class BookRetieveUpdate(RetrieveUpdateAPIView):
     '''
     this class handle Put,patch and get
     '''
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
-class BookUpdateDestory(RetrieveDestroyAPIView):
+class BookRetriveDestory(RetrieveDestroyAPIView):
     '''
     this class retrieve, delete (get and Delete)
     '''
