@@ -7,68 +7,61 @@ from .serializers import BookSerializer
 
 # Create your views here.
 class BookViewSet(viewsets.ViewSet):
-    def list(self,request):
+    def list(self, request):
         books = Book.objects.all()
-        serializer = BookSerializer(books,many=True)
-        return Response(serializer.data,status=status.HTTP_200_OK)
+        serializer = BookSerializer(books, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
-    def create(self,request):
-        serializer = BookSerializer(data = request.data)
+    def create(self, request):
+        serializer = BookSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Use serializer.errors instead of serializer.data for errors
     
-    # id required
-    def retrieve(self, request,pk=None):
+    def retrieve(self, request, pk=None):
         try:
             book = Book.objects.get(pk=pk)
         except Book.DoesNotExist:
-            return Response({'error':'Book Not Found'},status=status.HTTP_404_NOT_FOUND)
+            return Response({'error': 'Book Not Found'}, status=status.HTTP_404_NOT_FOUND)
 
         serializer = BookSerializer(book)
-        return Response(serializer.data,status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
         
-    def update(self,request,pk=None):
+    def update(self, request, pk=None):
         '''
-        updating book data in specific id
-        complete data update
+        Updating book data for a specific id (complete data update)
         '''
         try:
             book = Book.objects.get(pk=pk)
         except Book.DoesNotExist:
-            return Response({'error':'Book Not Found'},status=status.HTTP_404_NOT_FOUND)
+            return Response({'error': 'Book Not Found'}, status=status.HTTP_404_NOT_FOUND)
         
-        serializer = BookSerializer(book,data = request.data)
+        serializer = BookSerializer(book, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response({'error':'Unable to update'},status=status.HTTP_400_BAD_REQUEST)
-
-        
-
-    def partial_update(self,request, pk=None):
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Use serializer.errors instead of 'error' key
+    
+    def partial_update(self, request, pk=None):
         '''
-        partially updating value of the book
+        Partially updating the value of the book
         '''
         try:
             book = Book.objects.get(pk=pk)
         except Book.DoesNotExist:
-            return Response({'error':'Book Not Found'},status=status.HTTP_404_NOT_FOUND)
+            return Response({'error': 'Book Not Found'}, status=status.HTTP_404_NOT_FOUND)
         
-        serializer = BookSerializer(book,data = request.data,partial = True)
+        serializer = BookSerializer(book, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response({'error':'Unable to update'},status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Use serializer.errors instead of 'error' key
 
-        
-
-    def destory(self, request,pk=None):
+    def destroy(self, request, pk=None):  # Corrected method name
         try:
             book = Book.objects.get(pk=pk)
         except Book.DoesNotExist:
-            return Response({'error':'Book Not found'})
+            return Response({'error': 'Book Not Found'}, status=status.HTTP_404_NOT_FOUND)
         book.delete()
-        return Response({'msg':'delete successfully'},status=status.HTTP_204_NO_CONTENT)
-
+        return Response({'message': 'Deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
