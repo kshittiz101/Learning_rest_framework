@@ -7,4 +7,5 @@ urlpatterns = [
     path('api/',include('api.urls')),
     path('apiview/',include('apiview_app.urls')),
     path('generic/',include('genericAndmixin.urls')),
+    path('concreteview/',include('concreteview.urls')),
 ]
