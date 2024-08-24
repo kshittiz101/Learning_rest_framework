@@ -17,7 +17,7 @@ class BookViewSet(viewsets.ViewSet):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Use serializer.errors instead of serializer.data for errors
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
     
     def retrieve(self, request, pk=None):
         try:
