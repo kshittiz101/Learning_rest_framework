@@ -12,4 +12,5 @@ urlpatterns = [
     path('sessionapi/',include(router.urls)),
     path('auth/',include('rest_framework.urls',namespace='rest_framework')),
     path('custompermission/',include(router.urls)),
+    path('fbv/',include('fbv_permission.urls')),
 ]

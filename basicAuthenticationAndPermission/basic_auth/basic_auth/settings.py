@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'sessionauth',
     'custom_per',
+    'fbv_permission',
 ]
 
 MIDDLEWARE = [
