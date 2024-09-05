@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'simplefilter',
     'genericfileterapp',
     'django_filters',
+    'searchfilterapp',
 ]
 
 MIDDLEWARE = [
