@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import Book
+from .models import Student
 
 # Register your models here.
 
 
-@admin.register(Book)
-class BookAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'author']
-    search_fields = ['title']
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'roll', 'city']
