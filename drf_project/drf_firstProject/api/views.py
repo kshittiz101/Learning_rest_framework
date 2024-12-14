@@ -42,6 +42,3 @@ def all_student(request):
         return JsonResponse({'error':'Student not found'},status = 404)
     serializer = StudentSerializer(stu,many=True)
     return JsonResponse(serializer.data,safe=False)
-    
-
-    
