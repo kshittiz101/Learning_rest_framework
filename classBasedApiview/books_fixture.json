@@ -1,0 +1,57 @@
+[
+  {
+    "model": "main.Books",
+    "pk": 1,
+    "fields": {
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt",
+      "published_date": "1999-10-20",
+      "isbn": "9780201616224",
+      "price": "42.99"
+    }
+  },
+  {
+    "model": "main.Books",
+    "pk": 2,
+    "fields": {
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "published_date": "2008-08-11",
+      "isbn": "9780132350884",
+      "price": "35.50"
+    }
+  },
+  {
+    "model": "main.Books",
+    "pk": 3,
+    "fields": {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "published_date": "2018-10-16",
+      "isbn": "9780735211292",
+      "price": "25.00"
+    }
+  },
+  {
+    "model": "main.Books",
+    "pk": 4,
+    "fields": {
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "published_date": "2016-01-05",
+      "isbn": "9781455586691",
+      "price": "22.99"
+    }
+  },
+  {
+    "model": "main.books",
+    "pk": 5,
+    "fields": {
+      "title": "Python Crash Course",
+      "author": "Eric Matthes",
+      "published_date": "2015-11-01",
+      "isbn": "9781593276034",
+      "price": "30.00"
+    }
+  }
+]
