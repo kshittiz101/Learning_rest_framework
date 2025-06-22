@@ -1,0 +1,47 @@
+[
+  {
+    "model": "api.books",
+    "pk": 1,
+    "fields": {
+      "title": "The Pragmatic Programmer",
+      "price": 45,
+      "author": "Andrew Hunt"
+    }
+  },
+  {
+    "model": "api.books",
+    "pk": 2,
+    "fields": {
+      "title": "Clean Code",
+      "price": 40,
+      "author": "Robert C. Martin"
+    }
+  },
+  {
+    "model": "api.books",
+    "pk": 3,
+    "fields": {
+      "title": "Atomic Habits",
+      "price": 30,
+      "author": "James Clear"
+    }
+  },
+  {
+    "model": "api.books",
+    "pk": 4,
+    "fields": {
+      "title": "Deep Work",
+      "price": 35,
+      "author": "Cal Newport"
+    }
+  },
+  {
+    "model": "api.books",
+    "pk": 5,
+    "fields": {
+      "title": "Python Crash Course",
+      "price": 50,
+      "author": "Eric Matthes"
+    }
+  }
+]
