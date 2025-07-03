@@ -1,0 +1,47 @@
+[
+  {
+    "model": "session_auth.books",
+    "pk": 1,
+    "fields": {
+      "title": "Django for Beginners",
+      "price": 250,
+      "author": "William S. Vincent"
+    }
+  },
+  {
+    "model": "session_auth.books",
+    "pk": 2,
+    "fields": {
+      "title": "Python Crash Course",
+      "price": 300,
+      "author": "Eric Matthes"
+    }
+  },
+  {
+    "model": "session_auth.books",
+    "pk": 3,
+    "fields": {
+      "title": "Two Scoops of Django",
+      "price": 350,
+      "author": "Daniel Roy Greenfeld"
+    }
+  },
+  {
+    "model": "session_auth.books",
+    "pk": 4,
+    "fields": {
+      "title": "Fluent Python",
+      "price": 500,
+      "author": "Luciano Ramalho"
+    }
+  },
+  {
+    "model": "session_auth.books",
+    "pk": 5,
+    "fields": {
+      "title": "Clean Code",
+      "price": 450,
+      "author": "Robert C. Martin"
+    }
+  }
+]
