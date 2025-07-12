@@ -1,31 +1,41 @@
 from django.contrib import admin
-from .models import User, Profile
+from .models import User, Profile, BirthCertificate, Application
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-
-class ProfileInline(admin.StackedInline):
-    model = Profile
-    can_delete = False
-    verbose_name_plural = 'Profile'
+# Custom User Admin
 
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    inlines = (ProfileInline,)
-
-    list_display = (
-        'username', 'email', 'first_name', 'last_name',
-        'user_type', 'is_staff', 'get_date_of_birth', 'get_address'
-    )
-
+    list_display = ('username', 'email', 'user_type', 'is_active', 'is_staff')
+    list_filter = ('user_type', 'is_active', 'is_staff')
     fieldsets = BaseUserAdmin.fieldsets + (
         ('Custom Fields', {'fields': ('user_type',)}),
     )
 
-    def get_date_of_birth(self, obj):
-        return obj.profile.date_of_birth if hasattr(obj, 'profile') else '-'
-    get_date_of_birth.short_description = 'Date of Birth'
+# Profile Admin
 
-    def get_address(self, obj):
-        return obj.profile.address if hasattr(obj, 'profile') else '-'
-    get_address.short_description = 'Address'
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'date_of_birth', 'address')
+    search_fields = ('user__username',)
+
+# Birth Certificate Admin
+
+
+@admin.register(BirthCertificate)
+class BirthCertificateAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date_and_time_of_birth',
+                    'birth_place', 'father_name', 'mother_name')
+    search_fields = ('father_name', 'mother_name', 'birth_place')
+
+# Application Admin
+
+
+@admin.register(Application)
+class ApplicationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'applicant', 'approval_status',
+                    'approval_by', 'posted_date', 'approval_date')
+    list_filter = ('approval_status', 'posted_date')
+    search_fields = ('applicant__username', 'birth_certificate__father_name')

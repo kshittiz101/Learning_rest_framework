@@ -1,11 +1,21 @@
-from django.urls import path, include
+# urls.py
 from rest_framework.routers import DefaultRouter
-from .views import UserCreationViewsets
+from .views import (
+    UserViewSet,
+    ProfileView,
+    BirthCertificateViewSet,
+    ApplicationViewSet
+)
+from django.urls import path, include
 
 router = DefaultRouter()
-router.register(r'user', UserCreationViewsets, basename='user')
+router.register('users', UserViewSet, basename='users')
+router.register('certificates', BirthCertificateViewSet,
+                basename='certificates')
+router.register('applications', ApplicationViewSet, basename='applications')
 
 urlpatterns = [
-    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('profile/', ProfileView.as_view(), name='profile'),
     path('', include(router.urls)),
+    path('auth/', include('rest_framework.urls', namespace="rest_framework"))
 ]
