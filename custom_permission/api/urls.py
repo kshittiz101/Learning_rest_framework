@@ -1,13 +1,13 @@
 from django.urls import path, include
-from api.views import BookViewsets
 from rest_framework.routers import DefaultRouter
+from .views import BooksViewsets, AuthorDetailView, AuthorListView
 
 router = DefaultRouter()
-
-router.register('books', BookViewsets, basename='books')
+router.register(r'books', BooksViewsets, basename="books")
 
 urlpatterns = [
-    # for browser api we need to include to ask for login and logout
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('authors/', AuthorListView.as_view(), name="all-author"),
+    path('authors/<int:pk>/', AuthorDetailView.as_view(), name="authors"),
+    path('', include(router.urls)),
 ]
-urlpatterns += router.urls
