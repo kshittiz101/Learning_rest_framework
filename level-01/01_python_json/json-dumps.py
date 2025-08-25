@@ -1,14 +1,19 @@
-# python json
-# python json is module or package which is use to work with json data
-# Important Methods in json module
-# 1. dumps(data)
-# this method is use to converts python objects into json string
+# Convert python to json  (serializtions)
+#  python provide json module to work with json
+# to convert python data to json we use dumps method
+
 import json
-python_data = {'name':'kshittiz', 'address':'nepal'}
-# converting python data to json string 
-json_data = json.dumps(python_data)
-print(json_data)
-print(type(json_data))
-
-
-
+python_data = {
+    'name': 'kshittiz',
+    'age': 23,
+    'isAdult': True,
+    'address': {
+        'country': 'Nepal',
+        'province': '3',
+        'city': 'kathmandu',
+    }
+}
+# converting python data to json string
+json_str = json.dumps(python_data)
+print(json_str)
+print(type(json_str))
