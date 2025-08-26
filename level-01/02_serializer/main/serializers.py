@@ -11,6 +11,22 @@ class BookSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['id', 'created_at']
 
+    # field level validation
+
+    def validate_title(self, value):
+        if len(value.strip()) < 3:
+            raise serializers.ValidationError(
+                "Title must be at least 3 characters."
+            )
+        return value
+
+    def validate_price(self, value):
+        if value < 0:
+            raise serializers.ValidationError(
+                "Price can't be negative."
+            )
+        return value
+
 
 class SnippetSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
