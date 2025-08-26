@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # install apps
     "main",
+    "nested_serializer",
 
     # packages
     'rest_framework',

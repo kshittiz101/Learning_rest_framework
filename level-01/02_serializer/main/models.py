@@ -10,7 +10,6 @@ STYLE_CHOICES = sorted([(item, item) for item in get_all_styles()])
 
 # Create your models here.
 
-
 class Books(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
