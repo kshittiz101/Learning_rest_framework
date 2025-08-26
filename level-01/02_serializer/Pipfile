@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 
 [dev-packages]
+pygments = "*"
 
 [requires]
 python_version = "3.12"
